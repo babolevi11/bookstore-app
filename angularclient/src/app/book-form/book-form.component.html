@@ -1,0 +1,82 @@
+<p>book-form works!</p>
+
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" [(ngModel)]="book.title" 
+            class="form-control" 
+            id="title" 
+            name="title" 
+            placeholder="Enter the book title"
+            required #title="ngModel">
+        </div>
+        <div [hidden]="!title.pristine" class="alert alert-danger">Title is required</div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" [(ngModel)]="book.author" 
+            class="form-control" 
+            id="author" 
+            name="author" 
+            placeholder="Enter the books author"
+            required #author="ngModel">
+          <div [hidden]="!author.pristine" class="alert alert-danger">Author is required</div>
+        </div>
+        <div class="form-group">
+            <label for="pubDate">Publication Date</label>
+            <input type="date" [(ngModel)]="book.pubDate" 
+                class="form-control" 
+                id="pubDate" 
+                name="pubDate" 
+                placeholder="Enter the books Publication Date"
+                required #pubDate="ngModel">
+            <div [hidden]="!pubDate.pristine" class="alert alert-danger">Publication Date is required</div>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" step="0.01" [(ngModel)]="book.price" 
+                class="form-control" 
+                id="price" 
+                name="price" 
+                placeholder="Enter the books Price"
+                required #price="ngModel">
+            <div [hidden]="!price.pristine" class="alert alert-danger">Price is required</div>
+        </div>
+        <div class="form-group">
+            <label for="genre">Genre</label>
+            <input type="text" [(ngModel)]="book.genre" 
+                class="form-control" 
+                id="genre" 
+                name="genre" 
+                placeholder="Enter the books Genre"
+                required #genre="ngModel">
+            <div [hidden]="!genre.pristine" class="alert alert-danger">Genre is required</div>
+        </div>
+        <div class="form-group">
+            <label for="isbn">ISBN</label>
+            <input type="text" pattern="[0-9]{13}" [(ngModel)]="book.isbn" 
+                class="form-control" 
+                id="isbn" 
+                name="isbn" 
+                placeholder="Enter the books ISBN"
+                required #isbn="ngModel">
+            <div [hidden]="!isbn.pristine" class="alert alert-danger">ISBN is required</div>
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="text" [(ngModel)]="book.quantity" 
+                class="form-control" 
+                id="quantity" 
+                name="quantity" 
+                placeholder="Enter the books Quantity"
+                required #quantity="ngModel">
+            <div [hidden]="!quantity.pristine" class="alert alert-danger">Quantity is required</div>
+        </div>
+        
+        <button type="submit" [disabled]="!bookForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
+  
