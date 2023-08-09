@@ -16,7 +16,7 @@ export class BookService {
     return this.http.get<Book[]>(this.booksUrl);
   }
 
-  public save(user: Book) {
-    return this.http.post<Book>(this.booksUrl, user);
+  public save(book: Book) {
+    return this.http.post<Book>(this.booksUrl, book);
   }
 }
